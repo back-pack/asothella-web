@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Tejas Asothella - Calculadora</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Backpack - Oscar Eberle y Mariano Freddi">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <!-- una mas y no jodemos mas -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">  
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <meta name="theme-color" content="#ffffff">
+  <!-- /favicon -->
+
+    <!-- Colores
+        818181 Gris de las letras  
+        fff0bd Cremita
+        ffb7a6 rosa pastel
+        ef7977 salmon 
+        0a7bbf Azul 
+        5d3b3c Marron 
+
+      -->
+
+  <style>
+    body {
+        font: 400 15px 'Open Sans', sans-serif; /*font: 400 15px Lato, sans-serif;*/
+        line-height: 1.8; 
+        color: #818181;
+    }
+    h2 {
+        font-size: 24px;        
+        color: #ffffff;
+        font-weight: 600;
+    }
+    h4 {
+        font-size: 19px;
+        line-height: 1.375em;
+        color: #303030;
+        font-weight: 400;
+        margin-bottom: 30px;
+    }  
+    .jumbotron {
+        /*background-color: #fff0bd;*/
+       /* color: #fff;*/
+        padding: 100px 25px;
+        font-family: Montserrat, sans-serif;
+    }
+    
+    .contenedorheader {
+    width: 100%;
+    height:500px;
+    overflow: hidden;
+    position: relative;
+    }
+
+    .contenedorlogo {
+    position: absolute;
+    text-align: center;
+    z-index: 9998;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    }
+    
+    .videojumbo {
+    position: inherit;
+    min-width: 100%;
+    overflow: hidden;
+    z-index: -1;
+    }
+
+    .imgnos {
+      width:200px;
+      padding-top: 15px;/*
+      -webkit-box-shadow: 0px 10px 18px #777;
+      -moz-box-shadow: 0px 10px 18px #777;
+      box-shadow: 0px 10px 18px #777;*/
+    }
+    .ufaa {padding-left:30px;}
+
+    .container-fluid {  
+        padding: 60px 50px;
+    }
+    .bg-grey {
+        background-color: #f6f6f6;
+    }
+    .logo-small {
+        color: #ef7977;
+        font-size: 50px;
+    }
+    .logo {
+        color: #fff0bd;
+        font-size: 200px;
+    }
+    .thumbnail {
+        padding: 0 0 15px 0;
+        border: none;
+        border-radius: 0;
+    }
+    .thumbnail img {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
+    }
+    .carousel-control.right, .carousel-control.left {
+        background-image: none;
+        color: #5d3b3c;
+    }
+    .carousel-indicators li {
+        border-color: #0a7bbf;
+    }
+    .carousel-indicators li.active {
+        background-color: #0a7bbf;
+    }
+    .item h4 {
+        font-size: 19px;
+        line-height: 1.375em;
+        font-weight: 400;
+        font-style: italic;
+        margin: 70px 0;
+    }
+    .item span {
+        font-style: normal;
+    }
+    .panel {
+        border: 1px solid #fff0bd; 
+        border-radius:0 !important;
+        transition: box-shadow 0.5s;
+    }
+    .panel:hover {
+        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+    }
+    .panel-footer .btn:hover {
+        border: 1px solid #0a7bbf;
+        background-color: #fff !important;
+        color: #0a7bbf;
+    }
+    .panel-heading {
+        color: #fff !important;
+        background-color: #5d3b3c !important;
+        padding: 25px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    .panel-footer {
+        background-color: white !important;
+    }
+    .panel-footer h3 {
+        font-size: 32px;
+    }
+    .panel-footer h4 {
+        color: #aaa;
+        font-size: 14px;
+    }
+    .panel-footer .btn {
+        margin: 15px 0;
+        background-color: #0a7bbf;
+        color: #fff;
+    }
+    .navbar {
+        margin-bottom: 0;
+        opacity: 0.85;
+        background-image: url("./img/fmenu.png");
+        background-size: 100%;
+        background-color: #ef7977;    
+        z-index: 9999;
+        border: 0;
+        font-size: 12px !important;
+        line-height: 1.42857143 !important;
+        border-radius: 0;
+        font-family: Montserrat, sans-serif;
+    }
+    .navbar li a, .navbar .navbar-brand {
+        color: #fff !important;
+    }
+    .navbar-nav li a:hover, .navbar-nav li.active a {
+        color: #5d3b3c !important;
+        background-color: rgba(255, 255, 255, 0.6) !important;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+        color: #fff !important;
+    }
+    footer .glyphicon {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #fff0bd;
+    }
+    .slideanim {visibility:hidden;}
+    .slide {
+        animation-name: slide;
+        -webkit-animation-name: slide;
+        animation-duration: 1s;
+        -webkit-animation-duration: 1s;
+        visibility: visible;
+    }
+    @keyframes slide {
+      0% {
+        opacity: 0;
+        transform: translateY(70%);
+      } 
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+    @-webkit-keyframes slide {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+      } 
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+      }
+    }
+    @media screen and (max-width: 768px) {
+      .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+      }
+      .btn-lg {
+          width: 100%;
+          margin-bottom: 35px;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      .logo {
+          font-size: 150px;
+      }
+    }
+
+    .portada {
+        width: 100%;
+        height: 8em;
+        background-repeat:no-repeat;
+        background-size: cover;
+        position: relative;
+        top: 50px;
+    }
+ 
+    .divisor {
+	padding-bottom: 9px;
+	border-bottom: 1px solid #eee;
+    }
+    .item {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .invisible {
+        display: none;
+    }
+  </style>
+
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="#myPage"><img style="max-width:120%;max-height:120%;" src="./img/logochico-06.png"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html#productos">PRODUCTOS</a></li>
+            <li><a href="index.html#nosotros">NOSOTROS</a></li>
+            <li><a href="index.html#caracteristicas">INFO</a></li>
+            <li><a href="index.html#contact">CONTACTO</a></li>
+            <li><a href="#"><i class="fas fa-calculator"></i> CALC</a></li>
+            <li><a href="http://tienda.m-rual.com/login"><small>Iniciar Sesión</small></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="portada">
+</div>
+<div class="container">
+    <div class="container-fluid">
+        <div class="text-left divisor">
+            <h1>Calculadora</h1>
+            <h4>Si querés saber cuantas tejas necesitas para tu proyecto, esta es tu herramienta.</h4>
+            <h5>Cuando termines, podés mandarnos toda la info asi te cotizamos.</h5>
+            <h5>Si sos cliente mayorista <a href="http://tienda.m-rual.com/login">ingresá a nuestra tienda desde acá</a></h5>
+        </div>
+        <div class="form-horizontal" style="padding-top: 15px">
+            <div class="form-group">                      <!-- ITEMIZADO -->
+                <div class="col-sm-3 control-label">                       
+                <img src="./img/1.png" height="17"> Tipo de teja
+                </div>
+                <div class="col-sm-5">             
+                    <select id="tipo_teja" class="form-control" name="tipo_teja">
+                        <option value="" selected>Seleccione el tipo de teja</option>
+                        <option value="Teja Colonial">Teja Colonial</option>
+                        <option value="Teja Francesa"> Proximamente -> Teja Francesa</option>
+                    </select>
+                </div>
+            </div>
+
+                
+            <div class="form-group">                      <!-- ITEMIZADO -->
+                <div class="col-sm-3 control-label">    
+                    <img src="./img/2.png" height="17"> Tipo de techo
+                </div>
+                <div class="col-sm-5">
+                    <select id="tipo_techo" class="form-control" onchange="ocultar_input()" name="tipo_techo">
+                        <option value="" selected>Seleccione el tipo de techo</option>	
+                        <option value="Techo_1">Techo a 1 agua</option>
+                        <option value="Techo_2a">Techo a 2 aguas simetrico</option>
+                        <option value="Techo_2b">Techo a 2 aguas asimetrico</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">                      <!-- ITEMIZADO -->
+                <div class="col-sm-3 control-label">    
+                    <img src="./img/3.png" height="17"> Color
+                </div>
+                <div class="col-sm-5">
+                    <select id="color" class="form-control"  name="color">
+                        <option value="" selected>Seleccione el color</option>
+                        <option value="Blanco">Blanco</option>
+                        <option value="Marron">Marron</option>
+                        <option value="Azul">Azul</option>
+                        <option value="Negro">Negro</option>
+                        <option value="Verde">Verde</option>
+                        <option value="Personalizado">Personalizado</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">                      <!-- ITEMIZADO -->
+                <div class="col-sm-3 control-label">    
+                    <img src="./img/4.png" height="17"> Medidas
+                </div>
+                <div class="col-sm-5">
+                    <input type="number" class="form-control"  id="ancho_techo" min="0.4" step="0.1" placeholder="Ancho de techo">
+                </div>
+            </div>
+
+            <div class="form-group">                      <!-- ITEMIZADO -->
+                <div class="col-sm-3 control-label">
+                </div>
+                <div class="col-sm-5">
+                    <input type="number"class="form-control"  id="largo_techo" min="1" step="0.1" placeholder="Largo de techo">
+                </div>
+            </div>
+            <div class="form-group">                      <!-- ITEMIZADO -->
+                <div class="col-sm-3 control-label">
+                </div>
+                <div class="col-sm-5">
+                    <input type="number" id="segundo_largo_techo" class="hidden form-control" min="1" step="0.1" placeholder="Segundo largo techo Asimetrico">
+                </div>
+            </div>
+            <div class="form-group divisor">                      <!-- ITEMIZADO -->
+                <div class="col-sm-offset-3 col-sm-5">
+                   <a href="#resultado" <button type="submit" id="calc" class="btn btn-info"><i class="fas fa-calculator"></i> Calcular</button> </a>
+                </div>
+            </div>
+            
+            <div class="form-group">                      <!-- ITEMIZADO -->
+                <div class="col-sm-3 control-label"> Resultado
+                </div>
+                <div id="resultado" class="col-sm-9 well">
+                    <div class="h5 strong"><strong>Calculo de tejas</strong></div>
+                    <div class="h6 strong"><strong>Tipo: </strong></div>
+                    <div id="print_tipo" class="h6"></div>
+                    <div class="h6 strong"><strong>Color </strong></div>
+                    <div id="print_color" class="h6"></div>
+                    <div class="h6 strong"><strong>Cantidad tejas:</strong></div>
+                    <div id="print_tejas" class="h6"></div>
+                    <div class="h6 strong"><strong>Cantidad cumbreras:</strong></div>
+                    <div id="print_cumbreras" class="h6"></div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    var images = ['portada_4.jpg', 'portada_1.jpg', 'portada_2.jpg', 'portada_3.jpg', 'portada_4.jpg', 'portada_5.jpg'];
+    $('.portada').css({'background-image': 'url(img/' + images[Math.floor(Math.random() * images.length)] + ')'});
+</script>
+<script type="text/javascript">
+	
+	// on-off del input
+	function ocultar_input(){
+	 	var tipo_techo = $("#tipo_techo").val();
+
+		switch (tipo_techo) {
+			case "Techo_1":
+			$("#segundo_largo_techo").addClass("hidden");
+			break;
+			case "Techo_2a":
+			$("#segundo_largo_techo").addClass("hidden");
+			break;
+			case "Techo_2b":
+			$("#segundo_largo_techo").removeClass("hidden");
+		}
+	}
+
+
+	$(document).ready(function(){
+   		
+   		$("#calc").click(function(){
+	     	var	tipo_teja = $("#tipo_teja").val();
+	     	var tipo_techo = $("#tipo_techo").val();
+	     	var color = $("#color").val() ;
+	     	var ancho = $("#ancho_techo").val();
+	     	var largo1 = $("#largo_techo").val();
+	     	var largo2 = $("#segundo_largo_techo").val();
+	     	var m2xteja = 0.455;      //Valor inicial
+	     	var cant_cumbr = ancho / 0.35;    //valor inicial
+	     	var m2;
+	     	var cant_tejas = "falto ingresar cantidad";
+			$("#print_cumbreras").text(cant_cumbr.toFixed(0));
+
+	     	$("#print_tipo").text(tipo_teja);
+	     	$("#print_color").text(color);
+
+			if (tipo_techo == "Techo_1") {
+				var m2 = ancho * largo1;
+				var cant_tejas = m2 / m2xteja;
+				$("#print_tejas").text(cant_tejas.toFixed(0));
+			} else {
+				if (tipo_techo == "Techo_2a") {
+			    	var m2 = ancho * largo1 * 2;
+					var cant_tejas = m2 / m2xteja;
+					$("#print_tejas").text(cant_tejas.toFixed(0));
+			    } else {
+			       	if (tipo_techo == "Techo_2b") {
+		        		var techo_a = ancho * largo1;
+		        		var techo_b = ancho * largo2;
+		        		var m2 = techo_a + techo_b;
+						var cant_tejas = m2 / m2xteja;
+						$("#print_tejas").text(cant_tejas.toFixed(0));
+			       	} else { $("#print_tejas").text("*** Seleccione el tipo de Techo ***");}
+			    }
+			}
+    	});
+
+	});
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Tejas Asothella</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Backpack - Oscar Eberle y Mariano Freddi">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <!-- una mas y no jodemos mas -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">  
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <meta name="theme-color" content="#ffffff">
+
+  <!-- /favicon -->
+ <!-- Colores
+      818181 Gris de las letras  
+      fff0bd Cremita
+      ffb7a6 rosa pastel
+      ef7977 salmon 
+      0a7bbf Azul 
+      5d3b3c Marron 
+
+  -->
+
+  <style>
+    body {
+        font: 400 15px 'Open Sans', sans-serif; 
+        line-height: 1.8; 
+        color: #818181;
+    }
+    h2 {
+        font-size: 24px;        
+        color: #ffffff;
+        font-weight: 600;
+    }
+    h4 {
+        font-size: 19px;
+        line-height: 1.375em;
+        color: #303030;
+        font-weight: 400;
+        margin-bottom: 30px;
+    }  
+    .jumbotron {
+        /*background-color: #fff0bd;*/
+       /* color: #fff;*/
+        padding: 100px 25px;
+        font-family: Montserrat, sans-serif;
+    }
+    
+    .contenedorheader {
+    width: 100%;
+    height:500px;
+    overflow: hidden;
+    position: relative;
+    }
+
+    .contenedorlogo {
+    position: absolute;
+    text-align: center;
+    z-index: 9998;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    }
+    
+    .videojumbo {
+    position: inherit;
+    min-width: 100%;
+    overflow: hidden;
+    z-index: -1;
+    }
+
+    .imgnos {
+      width:200px;
+      padding-top: 15px;/*
+      -webkit-box-shadow: 0px 10px 18px #777;
+      -moz-box-shadow: 0px 10px 18px #777;
+      box-shadow: 0px 10px 18px #777;*/
+    }
+    .ufaa {padding-left:30px;}
+
+    .container-fluid {  
+        padding: 60px 50px;
+    }
+    .bg-grey {
+        background-color: #f6f6f6;
+    }
+    .logo-small {
+        color: #ef7977;
+        font-size: 50px;
+    }
+    .logo {
+        color: #fff0bd;
+        font-size: 200px;
+    }
+    .thumbnail {
+        padding: 0 0 15px 0;
+        border: none;
+        border-radius: 0;
+    }
+    .thumbnail img {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
+    }
+    .carousel-control.right, .carousel-control.left {
+        background-image: none;
+        color: #5d3b3c;
+    }
+    .carousel-indicators li {
+        border-color: #0a7bbf;
+    }
+    .carousel-indicators li.active {
+        background-color: #0a7bbf;
+    }
+    .item h4 {
+        font-size: 19px;
+        line-height: 1.375em;
+        font-weight: 400;
+        font-style: italic;
+        margin: 70px 0;
+    }
+    .item span {
+        font-style: normal;
+    }
+    .panel {
+        border: 1px solid #fff0bd; 
+        border-radius:0 !important;
+        transition: box-shadow 0.5s;
+    }
+    .panel:hover {
+        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+    }
+    .panel-footer .btn:hover {
+        border: 1px solid #0a7bbf;
+        background-color: #fff !important;
+        color: #0a7bbf;
+    }
+    .panel-heading {
+        color: #fff !important;
+        background-color: #5d3b3c !important;
+        padding: 25px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    .panel-footer {
+        background-color: white !important;
+    }
+    .panel-footer h3 {
+        font-size: 32px;
+    }
+    .panel-footer h4 {
+        color: #aaa;
+        font-size: 14px;
+    }
+    .panel-footer .btn {
+        margin: 15px 0;
+        background-color: #0a7bbf;
+        color: #fff;
+    }
+    .navbar {
+        margin-bottom: 0;
+        opacity: 0.85;
+        background-image: url("./img/fmenu.png");
+        background-size: 100%;
+        background-color: #ef7977;    
+        z-index: 9999;
+        border: 0;
+        font-size: 12px !important;
+        line-height: 1.42857143 !important;
+        border-radius: 0;
+        font-family: Montserrat, sans-serif;
+    }
+    .navbar li a, .navbar .navbar-brand {
+        color: #fff !important;
+    }
+    .navbar-nav li a:hover, .navbar-nav li.active a {
+        color: #5d3b3c !important;
+        background-color: rgba(255, 255, 255, 0.6) !important;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+        color: #fff !important;
+    }
+    footer .glyphicon {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #fff0bd;
+    }
+    .slideanim {visibility:hidden;}
+    .slide {
+        animation-name: slide;
+        -webkit-animation-name: slide;
+        animation-duration: 1s;
+        -webkit-animation-duration: 1s;
+        visibility: visible;
+    }
+    @keyframes slide {
+      0% {
+        opacity: 0;
+        transform: translateY(70%);
+      } 
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+    @-webkit-keyframes slide {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+      } 
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+      }
+    }
+    @media screen and (max-width: 768px) {
+      .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+      }
+      .btn-lg {
+          width: 100%;
+          margin-bottom: 35px;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      .logo {
+          font-size: 150px;
+      }
+    }
+  </style>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage"><img style="max-width:120%;max-height:120%;" src="./img/logochico-06.png"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#productos">PRODUCTOS</a></li>
+        <li><a href="#nosotros">NOSOTROS</a></li>
+        <li><a href="#caracteristicas">INFO</a></li>
+        <li><a href="#contact">CONTACTO</a></li>
+        <li><a href="calculadora.html"><i class="fas fa-calculator"></i> CALC</a></li>
+        <li><a href="http://tienda.m-rual.com/login"><small>Iniciar Sesión</small></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+ 
+<div class="contenedorheader"> 
+  <div class="contenedorlogo">
+    <h1><img src="./img/logoh.png" alt="Asotella - Tejas para toda la vida" style="max-width:88%;max-height:88%;"></h1> 
+    <p>Tejas metálicas, para toda la vida.</p>
+  </div>
+  <video loop muted autoplay poster="/img/precarga.png" class="videojumbo">
+      <source src="./img/jumbo.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="container">
+<div id="productos" class="container-fluid">
+
+  <div class="text-center">
+    <h1>Productos</h1>
+    <h4>Elegi tu estilo.</h4>
+  </div>
+  <div class="row slideanim slide">
+    <div class="col-sm-6 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h2>Colonial</h2>
+        </div>
+        <div class="panel-body">
+          <img style="max-width:100%;max-height:100%; padding-top: 10px; padding-bottom: 10px;" src="./img/colonial.jpg">
+          <p><strong>Material:</strong> Cincalum</p>
+  <p><strong>Pintura:</strong></p>
+          <p>Mate Lisa</p><p></p>
+          <p>Mate Microtexturada</p>
+          <p>Brillante Lisa</p>
+          <p>Brillante Microtexturada</p>
+        </div>
+        <div class="panel-footer">
+  <a href="calculadora.html"><button class="btn btn-lg">Comprar</button></a>
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-6 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+
+          <h2>Cumbrera</h2>
+        </div>
+        <div class="panel-body">
+          <img style="max-width:100%;max-height:100%; padding-top: 10px; padding-bottom: 10px;" src="./img/cumbrera.jpg">
+          <p><strong>Material:</strong> Cincalum</p>
+  <p><strong>Pintura:</strong></p>
+          <p>Mate Lisa</p><p></p>
+          <p>Mate Microtexturada</p>
+          <p>Brillante Lisa</p>
+          <p>Brillante Microtexturada</p>
+        </div>
+        <div class="panel-footer">
+          <a href="calculadora.html"><button class="btn btn-lg">Comprar</button></a>
+        </div>
+      </div>      
+    </div>       
+        
+  </div>
+
+
+
+<!-- Container (Nosotros) -->
+<div id="nosotros" class="container-fluid bg-grey ">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>¿Quienes somos?</h1><br>
+      <h4>Te contamos un poco de nuestra historia.</h4><br>
+      <p><b>Tejas Asothella</b> es una división de Metalurgica RUAL S.A. Somos fabricantes de piezas automotrices para muchos de los vehículos que vez en la calle todos los días. Trabajamos directamente para las terminales siendo proveedores directos de piezas originales y estructurales que aseguran la robustez de un automóvil, hace mas de 60 años.
+        Con la misma Calidad y Dedicación, lanzamos nuestra línea de Tejas para techos, aplicando toda la tecnología y conocimiento en tu techo.
+        Las Tejas Asothella no son solo una teja de chapa, son las mejores tejas fabricadas con los mas altos estándares como si se tratara de un auto que garantiza tu seguridad en cualquier momento.
+        Nuestra empresa se encuentra certificada:</p>
+        <p><b>ISO 9001</b> – Sistema de Gestión de la Calidad</p>
+        <p><b>ISO 14001</b>  - Sistema de Gestión Ambiental</p>
+        <p><b>IATF 16949</b> – Requisitos específicos Automotrices</p>  
+      </p>
+      <br><!-- <button class="btn btn-default btn-lg"></button> -->
+    </div>
+  </div>
+  <div class="row">  
+    <div class="col-sm-3">
+      <a href="./img/UM_416235_Iqnet.pdf" target="_blank"><img class="imgnos panel" src="./img/IQNet.png"></a>
+    </div>
+    <div class="col-sm-3">
+      <a href="./img/QM15_416235 QM15_EN.pdf" target="_blank"><img class="imgnos panel" src="./img/QM15.png"></a>
+    </div>
+    <div class="col-sm-3">
+      <a href="./img/UM_416235_ES_EN.pdf" target="_blank"><img class="imgnos panel" src="./img/UM_416235.png"></a>
+    </div>
+    <div class="col-sm-3">
+      <a href="./img/UM_416235_Iqnet.pdf" target="_blank"><img class="imgnos panel" src="./img/UM_416235 _Iqnet.png"></a>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Container (Services Section) -->
+<div id="caracteristicas" class="container-fluid text-center">
+  <h1>CARACTERISTICAS</h1>
+  <h4>¿Por que son las mejores?</h4>
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-thumbs-up logo-small"></span>
+      <h4>FACIL COLOCACIÓN</h4>
+      <p>Reduzca tiempo y costos de mano de obra respecto a la teja tradicional. Con 2 Tejas Asothella se cubren 2,15 m2, mientras que necesitará 28 tejas cerámicas para cubrir la misma superficie, sin contar la cantidad de veces que tendrá que subir y bajar las escaleras…</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-piggy-bank logo-small"></span>
+      <h4>AHORRO</h4>
+      <p>Su techo no necesita ser una “mega obra”, las Tejas Asothella pesan 4,4 kg/m2, mientras que la teja cerámica puede llegar hasta 61 kg/m2. Reduzca mas de un 80% del peso, alivianando la estructura del techo y evitando fisuras y alto costo de mantenimiento futuro.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-send logo-small"></span>
+      <h4>COMODO TRANSPORTE</h4>
+      <p>Las Tejas Asothella se pueden transportar fácilmente. No necesitará un costoso camión con acoplado para ir hasta su hogar; traslade las tejas en su propio vehículo hasta el lugar de la obra, cargue y descargue sin necesidad de personal contratado. </p>
+    </div>
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-sunglasses logo-small"></span>
+      <h4>AISLACION TERMICA</h4>
+      <p>Que la teja sea de chapa no quiere decir que haga mas calor o frio dentro de su hogar. Con la misma aislación de la teja cerámica se consiguen mejores resultados, ya que su bajo espesor permite que la temperatura se disipe mas rápido. Disfrute de ambientes cálidos en menor tiempo.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-lock logo-small"></span>
+      <h4>BULLETPROOF</h4>
+      <p>Las tejas metálicas están testeadas para las mas altas exigencias. Granizo, vientos, lluvias, moho, nada puede impedir que usted se sienta seguro en su hogar. Garantizamos protección y durabilidad.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-ok-sign logo-small"></span>
+      <h4>CALIDAD</h4>
+      <p>Recibimos auditorias de calidad y medioambiente constantes que supervisan nuestro trabajo para garantizar nuestros productos a nuestros clientes. </p>
+    </div>
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-eye-open logo-small"></span>
+      <h4>BELLEZA</h4>
+      <p>Lejos de la sencillez de un techo liso, las Tejas Asothella revisten su techo de Distinción, Personalidad y Elegancia. </p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-briefcase logo-small"></span>
+      <h4>SERVICIO</h4>
+      <p>Nuestro departamento técnico puede asesorarlo en su proyecto desde el inicio realizando un presupuesto sin cargo.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (PROYECTOS CONCRETADOS) -->
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <h1>INSTALACIONES</h1><br>
+  <h4>¿Donde se instalaron?</h4>
+  <div class="row text-center slideanim">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="./img/testimonio1.JPG" alt="Paris" width="400" height="300">
+        <p><strong>Rio Negro</strong></p>
+        <p>Bariloche</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="./img/testimonio2.JPG" alt="New York" width="400" height="300">
+        <p><strong>Rio Negro</strong></p>
+        <p>Bariloche</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="./img/testimonio3.JPG" alt="San Francisco" width="400" height="300">
+        <p><strong>Bs. As.</strong></p>
+        <p>Ramos Mejia</p>
+      </div>
+    </div>
+  </div><br>
+  
+  <h1>Que dicen nuestros clientes</h1>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <h4>"Tener variedad de colores a gusto del cliente esta bueno"<br><span>Daniel, Misiones, Arg.</span></h4>
+      </div>
+      <div class="item">
+        <h4>"El diseño es muy atractivo"<br><span>Fernando, Tierra del Fuego, Arg.</span></h4>
+      </div>
+      <div class="item">
+        <h4>"Ahorré muchísimo en el flete y costo del techo"<br><span>Sebastián, Escobar, Arg.</span></h4>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid">
+  <h1 class="text-center">CONTACTO</h1>
+  <div class="row">
+    <div class="col-sm-5">
+      <p><b>Escribinos!</b> En breve nos comunicaremos.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Avda. San Martin 5761, La Tablada, Bs.As.</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +54 11 4652-2305/5429/8075</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> <a href="mailto:infotejas@tejas-asothella.com">infotejas@tejas-asothella.com</a></p>
+      <p><span class="glyphicon glyphicon-facebook"></span> <a href="https://www.instagram.com/asothella">instgrm.com/asothella</a></p>
+      <p><span class="glyphicon glyphicon-instagram"></span> <a href="https://www.facebook.com/asothella">fb.com/asothella</a></p>
+      <p><span class="glyphicon glyphicon-instagram"></span> <a href="https://www.facebook.com/asothellaoficial">fb.com/asothellaoficial</a></p>
+
+    </div>
+    <form name="frmContacto" id="frmContacto" method="POST">
+      <div class="col-sm-7 slideanim">
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="nombre" name="nombre" placeholder="Nombre" type="text" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="localidad" name="localidad" placeholder="Localidad" type="text">
+          </div>
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="telefono" name="telefono" placeholder="Telefono" type="tel" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+          </div>
+        </div>
+        <textarea class="form-control" id="comments" name="comments" placeholder="Consulta" rows="5"></textarea><br>
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <!-- <button class="btn btn-default pull-right" type="submit">Send</button> El boton original.  -->
+            <div class="pull-right">
+              <button id="btnSend" class="btn btn-default" type="submit"><i id="loading" class="fa fa-spinner fa-spin" style="display:none;"></i> Enviar</button>
+            </div>
+            <div class="g-recaptcha" class="pull-left" data-sitekey="6LcSzl0UAAAAAJ6pO6Xv0Mzpm_tQB_rFb5obWfxl"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 alert alert-success" role="alert" style="display:none" id="sendSuccess">
+          </div>
+          <div class="col-sm-6 alert alert-danger" role="alert" style="display:none" id="sendAlert">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1640.3514304152372!2d-58.513387106959144!3d-34.687448107655136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc8d723a467bb%3A0x98d6e6471dfc3570!2sMetal%C3%BArgica+Rual+S.A.!5e0!3m2!1ses-419!2sar!4v1544044976456" width="1140" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+
+</div> <!-- /div del container -->
+
+
+
+<script>
+function myMap() {
+var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker = new google.maps.Marker({position:myCenter});
+marker.setMap(map);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Asothella 2018 <a href="https://www.tejas-asotella.com" title="Compra en nuestro ecommerce">www.tejas-asothella.com</a></p>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+
+  $('#frmContacto').submit(function(event) {
+    event.preventDefault();
+    if (grecaptcha === undefined) {
+      alert('Recaptcha not defined'); 
+      return; 
+    }
+    var response = grecaptcha.getResponse();
+    if (!response) {
+      alert('No hubo respuesta del captcha.'); 
+      return; 
+    }
+    clearMessages();
+    $('#loading').toggle();
+    $('#btnSend').attr('disabled', true);
+    $.ajax({
+      type: 'POST',
+      url: 'sendContact.php',
+      //data: $(this).serialize(),
+      data: {
+        nombre: $('#nombre').val(),
+        localidad: $('#localidad').val(),
+        telefono: $('#telefono').val(),
+        email: $('#email').val(),
+        comments: $('#comments').val(),
+        recaptcha: response
+      },
+      
+      }).done(function(data) {
+        var response = JSON.parse(data);
+        if(response.code === 200) {
+          $('#sendSuccess').html(response.msg);
+          $("#sendSuccess").css('display', 'block');
+          $("#sendAlert").css('display', 'none');
+          clearFields();
+          $('#loading').toggle();
+          $('#btnSend').attr('disabled', false);
+        } else {
+          var response = JSON.parse(data);
+          $("#sendAlert").html(response.msg);
+          $("#sendAlert").css('display', 'block');
+          $("#sendSuccess").css('display', 'none');
+          clearFields();
+          $('#loading').toggle();
+          $('#btnSend').attr('disabled', false);
+        }
+        
+      }).fail(function(data) {
+        var response = JSON.parse(data);
+        $("#sendAlert").html(response.msg);
+        $("#sendAlert").css('display', 'block');
+        $("#sendSuccess").css('display', 'none');
+        clearFields();
+        $('#loading').toggle();
+        $('#btnSend').attr('disabled', false);
+
+      });
+      return false;
+  });
+
+  function clearMessages() {
+    $("#sendAlert").html('');
+    $('#sendSuccess').html('');
+    $("#sendSuccess").css('display', 'none');
+    $("#sendAlert").css('display', 'none');
+  }
+
+  function clearFields() {
+    $('#nombre').val('');
+    $('#localidad').val('');
+    $('#email').val('');
+    $('#telefono').val('');
+    $('#comments').val('');
+  }
+  
+})
+</script>
+
+</body>
+</html>
